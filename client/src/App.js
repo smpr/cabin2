@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
+import Nav from './components/BoilerPlate/Nav'
+import Header from './components/BoilerPlate/Header'
+
+import Home from './components/Home/Home'
+
+import MaintHome from './components/Maintaince/MaintainceHome'
+import MaintAdd from './components/Maintaince/MaintainceAdd'
+import MaintEdit from './components/Maintaince/MaintainceEdit'
+import MaintShow from './components/Maintaince/MaintainceShow'
+
+import ResHome from './components/Reservation/ReservationHome'
+import ResEdit from './components/Reservation/ReservationEdit'
+import ResAdd from './components/Reservation/ReservationAdd'
+import ResShow from './components/Reservation/ReservationShow'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <MuiThemeProvider>
+        <Router>
+          <div>
+            <Header />
+            <Nav />
+              <Switch>
+                  <Route exact path='/' component={Home} />
+
+                  <Route exact path='/Maintenance' component={MaintHome} />
+                  <Route exact path='/Maintenance/Create' component={MaintAdd} />
+                  <Route exact path='/Maintenance/:MaintId/edit' component={MaintEdit} />
+                  <Route exact path='/Maintenance/:MaintId/show' component={MaintShow} />
+
+                  <Route exact path='/Reservation' component={ResHome} />
+                  <Route exact path='/Reservation/create' component={ResAdd} />
+                  <Route exact path='/Reservation/:ReservationId/edit' component={ResEdit} />
+                  <Route exact path='/Reservation/:ReservationId/show' component={ResShow} />
+              </Switch>
+              </div>
+        </Router>
+      </MuiThemeProvider>
+      
     );
   }
 }
