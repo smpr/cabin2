@@ -71,7 +71,7 @@ export default class MaintainceHome extends Component {
                 </div>
                 {this.state.closedIssues.map((clIssue, index) => {
                   return (
-                    <li><Link key={clIssue._id} to={`/maintenance/${clIssue.id}/show`}>{clIssue.title}
+                    <li><Link key={clIssue._id} to={`/maintenance/closed/${clIssue.id}/show`}>{clIssue.title}
                     </Link></li>
                   )
                 })}
@@ -87,7 +87,7 @@ export default class MaintainceHome extends Component {
                   <h2>Current Vendors:</h2>
                 </div>
                 <div>
-                  <RaisedButton href={`/maintenance/create`} label="Create Issue" style={Style} />
+                  <RaisedButton href={`/maintenance/vendor/create`} label="Create Vendor" style={Style} />
                 </div>
                 {this.state.vendors.map((vendor, index) => {
                   return (
