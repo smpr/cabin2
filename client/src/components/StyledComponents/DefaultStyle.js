@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { orange500, blue500, blueGrey100, cyan500 } from 'material-ui/styles/colors';
+import { orange500, blueGrey100, cyan500 } from 'material-ui/styles/colors';
 
 const BodyContainer = styled.div`
 display:flex;

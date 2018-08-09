@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { Container, FormContainer, BodyContainer, Style, TextLabelStyle } from "../StyledComponents/DefaultStyle"
+import { Container, FormContainer, BodyContainer, TextLabelStyle } from "../StyledComponents/DefaultStyle"
 export default class Home extends Component {
   state = {
     email: '',

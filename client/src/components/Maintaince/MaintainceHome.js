@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { Container, FormContainer, BodyContainer, Style } from "../StyledComponents/DefaultStyle"
+import { Link } from 'react-router-dom'
+import { Container, FormContainer, Style } from "../StyledComponents/DefaultStyle"
 import RaisedButton from 'material-ui/RaisedButton';
 export default class MaintainceHome extends Component {
   state = {
