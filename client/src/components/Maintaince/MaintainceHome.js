@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Container, FormContainer, Style } from "../StyledComponents/DefaultStyle"
 import RaisedButton from 'material-ui/RaisedButton';
@@ -18,14 +19,9 @@ export default class MaintainceHome extends Component {
         id: 2,
         title: "this is the vendor list 2"
       }]
-      const issueConst = [{
-        id: 1,
-        title: "This is the Issues List 1"
-      },
-      {
-        id: 2,
-        title: "This is the Issues List 2"
-      }]
+      const issue = await axios.get('/api/issues')
+      console.log(issue.data)
+      this.setState({issues: issue.data})
       const closedIssuesConst = [{
         id: 1,
         title: "This is the Closed Issues List 1"
@@ -34,7 +30,7 @@ export default class MaintainceHome extends Component {
         id: 2,
         title: "This is the Closed Issues List 2"
       }]
-      this.setState({ vendors: vendorConst, issues: issueConst, closedIssues: closedIssuesConst })
+      this.setState({ vendors: vendorConst, closedIssues: closedIssuesConst })
     } catch (error) {
       console.log(error)
     }
