@@ -25,6 +25,8 @@ import VenShow from './components/Maintaince/Vendors/VenShow'
 import OldShow from './components/Maintaince/OldIssues/OldShow'
 import OldEdit from './components/Maintaince/OldIssues/OldEdit'
 
+import VisitShow from './components/Maintaince/Visits/VisitShow'
+
 class App extends Component {
   render() {
     return (
@@ -47,6 +49,7 @@ class App extends Component {
               <Route exact path='/Maintenance/closed/:ClosedIf/edit' component={OldEdit} />
               <Route exact path='/Maintenance/:MaintId/edit' component={MaintEdit} />
               <Route exact path='/Maintenance/:MaintId/show' component={MaintShow} />
+              <Route exact path='/Maintenance/:MaintId/visit/:VisitId/Show' component={VisitShow} />
 
               <Route exact path='/Reservation' component={ResHome} />
               <Route exact path='/Reservation/create' component={ResAdd} />
