@@ -1,0 +1,19 @@
+2018-08-09 13:15:25.768 EDT [47110] LOG:  listening on IPv6 address "::1", port 5432
+2018-08-09 13:15:25.768 EDT [47110] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-08-09 13:15:25.771 EDT [47110] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-08-09 13:15:25.781 EDT [47111] LOG:  database system was shut down at 2018-08-09 13:15:09 EDT
+2018-08-09 13:15:25.783 EDT [47110] LOG:  database system is ready to accept connections
+2018-08-09 13:18:40.907 EDT [47655] ERROR:  relation "issues" does not exist
+2018-08-09 13:18:40.907 EDT [47655] STATEMENT:  CREATE TABLE "visits" ("id" bigserial primary key, "date" character varying, "description" character varying, "vendor" character varying, "fixedProblem" character varying, "notes" character varying, "issue_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1a572ae6f9"
+	FOREIGN KEY ("issue_id")
+	  REFERENCES "issues" ("id")
+	)
+2018-08-09 13:19:25.592 EDT [47877] ERROR:  relation "issues" does not exist
+2018-08-09 13:19:25.592 EDT [47877] STATEMENT:  CREATE TABLE "visits" ("id" bigserial primary key, "date" character varying, "description" character varying, "vendor" character varying, "fixedProblem" character varying, "notes" character varying, "issues_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4b918ea4f3"
+	FOREIGN KEY ("issues_id")
+	  REFERENCES "issues" ("id")
+	)
+2018-08-09 13:26:37.620 EDT [49152] ERROR:  database "cabinv2_development" already exists
+2018-08-09 13:26:37.620 EDT [49152] STATEMENT:  CREATE DATABASE "cabinv2_development" ENCODING = 'unicode'
+2018-08-09 13:26:37.632 EDT [49160] ERROR:  database "cabinv2_test" already exists
+2018-08-09 13:26:37.632 EDT [49160] STATEMENT:  CREATE DATABASE "cabinv2_test" ENCODING = 'unicode'
