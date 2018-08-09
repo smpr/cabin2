@@ -10,7 +10,14 @@ export default class MaintainceHome extends Component {
   }
   async componentDidMount() {
     try {
-      const vendorConst = "This is the Vendor list"
+      const vendorConst = [{
+        id: 1,
+        title: "This is the Vendor list"
+      },
+      {
+        id: 2,
+        title: "this is the vendor list 2"
+      }]
       const issueConst = [{
         id: 1,
         title: "This is the Issues List 1"
@@ -19,7 +26,14 @@ export default class MaintainceHome extends Component {
         id: 2,
         title: "This is the Issues List 2"
       }]
-      const closedIssuesConst = "This is the list of closed issues"
+      const closedIssuesConst = [{
+        id: 1,
+        title: "This is the Closed Issues List 1"
+      },
+      {
+        id: 2,
+        title: "This is the Closed Issues List 2"
+      }]
       this.setState({ vendors: vendorConst, issues: issueConst, closedIssues: closedIssuesConst })
     } catch (error) {
       console.log(error)
@@ -48,21 +62,58 @@ export default class MaintainceHome extends Component {
             </div>
           </FormContainer>
         </Container>
+        <Container>
+          <FormContainer>
+            <div>
+              <ol>
+                <div>
+                  <h2>Closed Issues:</h2>
+                </div>
+                {this.state.closedIssues.map((clIssue, index) => {
+                  return (
+                    <li><Link key={clIssue._id} to={`/maintenance/${clIssue.id}/show`}>{clIssue.title}
+                    </Link></li>
+                  )
+                })}
+              </ol>
+            </div>
+          </FormContainer>
+        </Container>
+        <Container>
+          <FormContainer>
+            <div>
+              <ol>
+                <div>
+                  <h2>Current Vendors:</h2>
+                </div>
+                <div>
+                  <RaisedButton href={`/maintenance/create`} label="Create Issue" style={Style} />
+                </div>
+                {this.state.vendors.map((vendor, index) => {
+                  return (
+                    <li><Link key={vendor._id} to={`/maintenance/vendor/${vendor.id}/show`}>{vendor.title}
+                    </Link></li>
+                  )
+                })}
+              </ol>
+            </div>
+          </FormContainer>
+        </Container>
         Maintaince Home page. Will Show Map of curent Maintaince issues. List maintaince contractors. Will also show old/closed out issues.
-        Schema so far:  Issue: string
-                        location: string
-                        QuotedCost: int
-                        ActualCost: int
-                        issueCreate: date
-                        dateTicketCreate: date
-                        serviceDate: has_many visits
-                            vist -
-                                technician: string
-                                dateVisit: date
-                                fixedProblem: string
-                                notes: string
-                            -
-                        closed: string
+        <br />Schema so far:  Issue: string<br />
+                        location: string<br />
+                        QuotedCost: int<br />
+                        ActualCost: int<br />
+                        issueCreate: date<br />
+                        dateTicketCreate: date<br />
+                        serviceDate: has_many visits<br />
+                            vist -<br />
+                                technician: string<br />
+                                dateVisit: date<br />
+                                fixedProblem: string<br />
+                                notes: string<br />
+                            -<br />
+                        closed: string<br />
       </div>
     )
   }
