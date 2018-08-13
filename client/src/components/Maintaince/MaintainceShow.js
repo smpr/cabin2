@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, FormContainer, BodyContainer, Style } from "../StyledComponents/DefaultStyle"
 import axios from 'axios'
+import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom'
 export default class MaintainceShow extends Component {
   state = {
@@ -33,7 +34,9 @@ export default class MaintainceShow extends Component {
             Notes: {this.state.issue.notes}<br />
             Current Visits to fix issue:
             <div>
-              <ul>
+              <ul>                <div>
+                <RaisedButton href={`/maintenance/${this.props.match.params.MaintId}/visit/create`} label="Create Visit" style={Style} />
+              </div>
                 {this.state.visits.map((visit, index) => {
                   return (
                     <div>
