@@ -24,19 +24,25 @@ export default class MaintainceShow extends Component {
       <BodyContainer>
         <Container>
           <FormContainer>
-            Problem: {this.state.issue.title}<br />
-            Location: {this.state.issue.location}<br />
-            Quoted Price: {this.state.issue.quoteCost}<br />
-            Actual Cost: {this.state.issue.actualCost}<br />
-            First Noticed: {this.state.issue.issueCreate}<br />
-            Start Date to fix: {this.state.issue.ticketCreate}<br />
-            Finished: {this.state.issue.closed}<br />
-            Notes: {this.state.issue.notes}<br />
+            <div>
+              Problem: {this.state.issue.title}<br />
+              Location: {this.state.issue.location}<br />
+              Quoted Price: {this.state.issue.quoteCost}<br />
+              Actual Cost: {this.state.issue.actualCost}<br />
+              First Noticed: {this.state.issue.issueCreate}<br />
+              Start Date to fix: {this.state.issue.ticketCreate}<br />
+              Finished: {this.state.issue.closed}<br />
+              Notes: {this.state.issue.notes}<br />
+            </div>
+            <div>
+              <RaisedButton href={`/maintenance/${this.props.match.params.MaintId}/edit`} label="Edit Issue" style={Style} />
+            </div>
             Current Visits to fix issue:
             <div>
-              <ul>                <div>
-                <RaisedButton href={`/maintenance/${this.props.match.params.MaintId}/visit/create`} label="Create Visit" style={Style} />
-              </div>
+              <ul>
+                <div>
+                  <RaisedButton href={`/maintenance/${this.props.match.params.MaintId}/visit/create`} label="Create Visit" style={Style} />
+                </div>
                 {this.state.visits.map((visit, index) => {
                   return (
                     <div>
