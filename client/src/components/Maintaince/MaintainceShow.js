@@ -28,7 +28,7 @@ export default class MaintainceShow extends Component {
             Quoted Price: {this.state.issue.quoteCost}<br />
             Actual Cost: {this.state.issue.actualCost}<br />
             First Noticed: {this.state.issue.issueCreate}<br />
-            Start Date to fix: {this.state.issue.ticketCreat}<br />
+            Start Date to fix: {this.state.issue.ticketCreate}<br />
             Finished: {this.state.issue.closed}<br />
             Notes: {this.state.issue.notes}<br />
             Current Visits to fix issue:

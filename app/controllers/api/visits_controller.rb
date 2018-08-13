@@ -4,4 +4,8 @@ class Api::VisitsController < ApplicationController
         @visits = @issue.visits.all
         render json: @visits
     end
+    def show
+        @visit = Visit.find(params[:id])
+        render json: @visit
+    end
 end
